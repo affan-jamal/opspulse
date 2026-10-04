@@ -1,0 +1,78 @@
+# OpsPulse local stack. Services join in phase order; profiles keep `up` lean.
+#
+#   docker compose run --rm etl                 # Phase 1: full ETL run (default command)
+#   docker compose run --rm etl opspulse-etl verify
+#   docker compose up -d postgres               # Phase 2+
+#   docker compose --profile tools up -d        # + Adminer DB browser on http://localhost:8080
+#   docker compose --profile worker up -d       # + Redis for the Phase 4 sync worker
+#
+# Ports bind to 127.0.0.1 only: Docker bypasses host firewalls such as ufw, so
+# publishing on 0.0.0.0 would expose the database on a cloud VM.
+
+name: opspulse
+
+x-app: &app
+  image: ${OPSPULSE_IMAGE:-opspulse:local}
+  build:
+    context: .
+  env_file:
+    - path: .env
+      required: false
+  environment:
+    OPSPULSE_ROOT: /app
+
+services:
+  etl:
+    <<: *app
+    profiles: ["etl"]
+    command: ["opspulse-etl", "run"]
+    volumes:
+      - ./data:/app/data
+      - ./data/raw:/app/data/raw:ro # the source stays immutable, even inside the container
+      - ./reports:/app/reports
+
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-opspulse}
+      POSTGRES_USER: ${POSTGRES_USER:-opspulse}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-opspulse}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./infra/postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    image: redis:8-alpine
+    profiles: ["worker"]
+    restart: unless-stopped
+    # A broker, not a database: no persistence needed.
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    ports:
+      - "127.0.0.1:6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  adminer:
+    image: adminer:5
+    profiles: ["tools"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+    ports:
+      - "127.0.0.1:8080:8080"
+
+volumes:
+  pgdata:
