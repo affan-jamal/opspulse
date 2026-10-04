@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "opspulse"
+version = "0.1.0"
+description = "OpsPulse - business operations intelligence built on the Olist e-commerce dataset"
+readme = "README.md"
+requires-python = ">=3.12"
+# Phase 1 (data foundation) only. Later phases are opt-in extras below.
+dependencies = [
+    "pandas>=3.0,<4",
+    "numpy>=2.0,<3",
+    "pyarrow>=18",
+]
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6", "uv>=0.12"]
+
+[project.optional-dependencies]
+# Phase 2: PostgreSQL load + migrations
+db = ["sqlalchemy>=2.0", "psycopg[binary]>=3.2", "alembic>=1.13", "pydantic-settings>=2.4"]
+# Phases 3/4/6: provider API, ingestion client, analytics API
+api = ["fastapi>=0.115", "uvicorn[standard]>=0.30", "httpx>=0.27", "tenacity>=9"]
+# Phase 5: scheduled sync
+worker = ["celery[redis]>=5.4"]
+# Phase 7: anomaly detection
+ml = ["scikit-learn>=1.5"]
+
+[project.scripts]
+opspulse-etl = "opspulse.etl.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/opspulse"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+extend-exclude = ["*.md"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+# The formatter owns line length; long strings it cannot split are fine.
+ignore = ["E501"]

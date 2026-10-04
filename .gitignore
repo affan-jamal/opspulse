@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+*.egg-info/
+build/
+dist/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Data (source CSVs are never committed; reports/ IS committed)
+data/raw/
+data/staging/
+data/processed/
+data/rejected/
+
+# Local database / tooling
+*.db
+*.sqlite
+*.sqlite3
+
+# Node (Phase 8 dashboard)
+node_modules/
+.next/
+
+# IDE
+.vscode/
+.idea/
+.qodo/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ETL scratch space and per-run report history (latest_report.* is committed)
+data/.tmp/
+reports/data_quality/runs/
