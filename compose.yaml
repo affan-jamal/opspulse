@@ -20,6 +20,9 @@ x-app: &app
       required: false
   environment:
     OPSPULSE_ROOT: /app
+    # Same credentials as .env, but the in-network hostnames instead of localhost.
+    DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-opspulse}:${POSTGRES_PASSWORD:-opspulse}@postgres:5432/${POSTGRES_DB:-opspulse}
+    REDIS_URL: redis://redis:6379/0
 
 services:
   etl:
@@ -39,7 +42,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-opspulse}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-opspulse}
     ports:
-      - "127.0.0.1:5432:5432"
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./infra/postgres/init:/docker-entrypoint-initdb.d:ro
