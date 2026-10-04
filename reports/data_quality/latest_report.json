@@ -1,0 +1,325 @@
+{
+  "run_id": "20261004T072704Z",
+  "status": "SUCCESS_WITH_WARNINGS",
+  "started_at": "2026-10-04T07:27:04+00:00",
+  "duration_seconds": 40.8,
+  "analysis_window": [
+    "2017-01-01 00:00:00",
+    "2018-08-31 23:59:59"
+  ],
+  "quality_gates": {
+    "source_files": "PASS",
+    "column_contract": "PASS",
+    "outputs": "PASS",
+    "keys": "PASS",
+    "completeness": "WARN",
+    "values": "WARN",
+    "dates": "WARN",
+    "references": "WARN"
+  },
+  "critical_problems": [],
+  "totals": {
+    "source_rows": 1550922,
+    "accepted_rows": 1550922,
+    "rejected_rows": 0,
+    "warnings": 2359
+  },
+  "tables": {
+    "customers": {
+      "source_rows": 99441,
+      "accepted_rows": 99441,
+      "rejected_rows": 0,
+      "issue_counts": {
+        "ZIP_NOT_IN_GEOLOCATION": 278
+      }
+    },
+    "geolocation": {
+      "source_rows": 1000163,
+      "accepted_rows": 1000163,
+      "rejected_rows": 0,
+      "issue_counts": {
+        "OUTSIDE_BRAZIL": 31
+      }
+    },
+    "order_items": {
+      "source_rows": 112650,
+      "accepted_rows": 112650,
+      "rejected_rows": 0,
+      "issue_counts": {
+        "TIMESTAMP_OUTSIDE_SOURCE_PERIOD": 4
+      }
+    },
+    "payments": {
+      "source_rows": 103886,
+      "accepted_rows": 103886,
+      "rejected_rows": 0,
+      "issue_counts": {
+        "UNDEFINED_PAYMENT_TYPE": 3,
+        "ZERO_INSTALLMENTS": 2,
+        "ZERO_PAYMENT_VALUE": 9
+      }
+    },
+    "reviews": {
+      "source_rows": 99224,
+      "accepted_rows": 99224,
+      "rejected_rows": 0,
+      "issue_counts": {}
+    },
+    "orders": {
+      "source_rows": 99441,
+      "accepted_rows": 99441,
+      "rejected_rows": 0,
+      "issue_counts": {
+        "CARRIER_BEFORE_APPROVAL": 1359,
+        "DELIVERED_BEFORE_CARRIER": 23,
+        "DELIVERED_WITHOUT_DELIVERY_DATE": 8,
+        "DELIVERY_DATE_ON_UNDELIVERED_ORDER": 6
+      }
+    },
+    "products": {
+      "source_rows": 32951,
+      "accepted_rows": 32951,
+      "rejected_rows": 0,
+      "issue_counts": {
+        "MISSING_CATEGORY": 610,
+        "MISSING_CATEGORY_TRANSLATION": 13,
+        "MISSING_DIMENSIONS": 2,
+        "ZERO_WEIGHT": 4
+      }
+    },
+    "sellers": {
+      "source_rows": 3095,
+      "accepted_rows": 3095,
+      "rejected_rows": 0,
+      "issue_counts": {
+        "ZIP_NOT_IN_GEOLOCATION": 7
+      }
+    },
+    "category_translation": {
+      "source_rows": 71,
+      "accepted_rows": 71,
+      "rejected_rows": 0,
+      "issue_counts": {}
+    }
+  },
+  "issues": [
+    {
+      "table": "customers",
+      "code": "ZIP_NOT_IN_GEOLOCATION",
+      "severity": "WARNING",
+      "stage": "referential_integrity",
+      "rows": 278,
+      "description": "Zip prefix has no geolocation observation."
+    },
+    {
+      "table": "geolocation",
+      "code": "OUTSIDE_BRAZIL",
+      "severity": "WARNING",
+      "stage": "row_validation",
+      "rows": 31,
+      "description": "Point is outside Brazil's bounding box; excluded from zip centroids."
+    },
+    {
+      "table": "order_items",
+      "code": "TIMESTAMP_OUTSIDE_SOURCE_PERIOD",
+      "severity": "WARNING",
+      "stage": "row_validation",
+      "rows": 4,
+      "description": "Shipping limit falls outside 2016-2018."
+    },
+    {
+      "table": "orders",
+      "code": "CARRIER_BEFORE_APPROVAL",
+      "severity": "WARNING",
+      "stage": "row_validation",
+      "rows": 1359,
+      "description": "Hand-over to the carrier is earlier than approval."
+    },
+    {
+      "table": "orders",
+      "code": "DELIVERED_BEFORE_CARRIER",
+      "severity": "WARNING",
+      "stage": "row_validation",
+      "rows": 23,
+      "description": "Delivery to the customer is earlier than hand-over to the carrier."
+    },
+    {
+      "table": "orders",
+      "code": "DELIVERED_WITHOUT_DELIVERY_DATE",
+      "severity": "WARNING",
+      "stage": "row_validation",
+      "rows": 8,
+      "description": "Status is delivered but there is no delivery timestamp."
+    },
+    {
+      "table": "orders",
+      "code": "DELIVERY_DATE_ON_UNDELIVERED_ORDER",
+      "severity": "WARNING",
+      "stage": "row_validation",
+      "rows": 6,
+      "description": "There is a delivery timestamp but the status is not delivered."
+    },
+    {
+      "table": "payments",
+      "code": "UNDEFINED_PAYMENT_TYPE",
+      "severity": "WARNING",
+      "stage": "row_validation",
+      "rows": 3,
+      "description": "Payment type is `not_defined`."
+    },
+    {
+      "table": "payments",
+      "code": "ZERO_INSTALLMENTS",
+      "severity": "WARNING",
+      "stage": "row_validation",
+      "rows": 2,
+      "description": "Installments are zero."
+    },
+    {
+      "table": "payments",
+      "code": "ZERO_PAYMENT_VALUE",
+      "severity": "WARNING",
+      "stage": "row_validation",
+      "rows": 9,
+      "description": "Payment value is zero."
+    },
+    {
+      "table": "products",
+      "code": "MISSING_CATEGORY",
+      "severity": "WARNING",
+      "stage": "row_validation",
+      "rows": 610,
+      "description": "Category is empty."
+    },
+    {
+      "table": "products",
+      "code": "MISSING_CATEGORY_TRANSLATION",
+      "severity": "WARNING",
+      "stage": "referential_integrity",
+      "rows": 13,
+      "description": "Category has no English translation."
+    },
+    {
+      "table": "products",
+      "code": "MISSING_DIMENSIONS",
+      "severity": "WARNING",
+      "stage": "row_validation",
+      "rows": 2,
+      "description": "Weight or a package dimension is empty."
+    },
+    {
+      "table": "products",
+      "code": "ZERO_WEIGHT",
+      "severity": "WARNING",
+      "stage": "row_validation",
+      "rows": 4,
+      "description": "Weight is exactly zero."
+    },
+    {
+      "table": "sellers",
+      "code": "ZIP_NOT_IN_GEOLOCATION",
+      "severity": "WARNING",
+      "stage": "referential_integrity",
+      "rows": 7,
+      "description": "Zip prefix has no geolocation observation."
+    }
+  ],
+  "outputs": {
+    "staging": {
+      "customers": 99441,
+      "geolocation": 1000163,
+      "order_items": 112650,
+      "payments": 103886,
+      "reviews": 99224,
+      "orders": 99441,
+      "products": 32951,
+      "sellers": 3095,
+      "category_translation": 71
+    },
+    "core": {
+      "customers": 99441,
+      "sellers": 3095,
+      "product_categories": 71,
+      "products": 32951,
+      "geo_zip_prefix": 19011,
+      "orders": 99441,
+      "order_items": 112650,
+      "payments": 103886,
+      "reviews": 99224
+    },
+    "analytics": {
+      "order_financial_summary": 99441,
+      "daily_sales": 730
+    },
+    "quality": {
+      "warnings": 2359
+    },
+    "rejected": {
+      "customers": 0,
+      "geolocation": 0,
+      "order_items": 0,
+      "payments": 0,
+      "reviews": 0,
+      "orders": 0,
+      "products": 0,
+      "sellers": 0,
+      "category_translation": 0
+    }
+  },
+  "sources": {
+    "olist_customers_dataset.csv": {
+      "table": "customers",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+      "bytes": 9033957,
+      "encoding": "utf-8"
+    },
+    "olist_geolocation_dataset.csv": {
+      "table": "geolocation",
+      "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6",
+      "bytes": 61273883,
+      "encoding": "utf-8"
+    },
+    "olist_order_items_dataset.csv": {
+      "table": "order_items",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+      "bytes": 15438671,
+      "encoding": "utf-8"
+    },
+    "olist_order_payments_dataset.csv": {
+      "table": "payments",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0",
+      "bytes": 5777138,
+      "encoding": "utf-8"
+    },
+    "olist_order_reviews_dataset.csv": {
+      "table": "reviews",
+      "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7",
+      "bytes": 14451670,
+      "encoding": "utf-8"
+    },
+    "olist_orders_dataset.csv": {
+      "table": "orders",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+      "bytes": 17654914,
+      "encoding": "utf-8"
+    },
+    "olist_products_dataset.csv": {
+      "table": "products",
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc",
+      "bytes": 2379446,
+      "encoding": "utf-8"
+    },
+    "olist_sellers_dataset.csv": {
+      "table": "sellers",
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e",
+      "bytes": 174703,
+      "encoding": "utf-8"
+    },
+    "product_category_name_translation.csv": {
+      "table": "category_translation",
+      "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278",
+      "bytes": 2613,
+      "encoding": "utf-8 with BOM"
+    }
+  }
+}

@@ -1,0 +1,1314 @@
+{
+  "run_id": "20261004T072704Z",
+  "sources": {
+    "olist_customers_dataset.csv": {
+      "table": "customers",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+      "bytes": 9033957,
+      "encoding": "utf-8"
+    },
+    "olist_geolocation_dataset.csv": {
+      "table": "geolocation",
+      "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6",
+      "bytes": 61273883,
+      "encoding": "utf-8"
+    },
+    "olist_order_items_dataset.csv": {
+      "table": "order_items",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+      "bytes": 15438671,
+      "encoding": "utf-8"
+    },
+    "olist_order_payments_dataset.csv": {
+      "table": "payments",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0",
+      "bytes": 5777138,
+      "encoding": "utf-8"
+    },
+    "olist_order_reviews_dataset.csv": {
+      "table": "reviews",
+      "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7",
+      "bytes": 14451670,
+      "encoding": "utf-8"
+    },
+    "olist_orders_dataset.csv": {
+      "table": "orders",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+      "bytes": 17654914,
+      "encoding": "utf-8"
+    },
+    "olist_products_dataset.csv": {
+      "table": "products",
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc",
+      "bytes": 2379446,
+      "encoding": "utf-8"
+    },
+    "olist_sellers_dataset.csv": {
+      "table": "sellers",
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e",
+      "bytes": 174703,
+      "encoding": "utf-8"
+    },
+    "product_category_name_translation.csv": {
+      "table": "category_translation",
+      "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278",
+      "bytes": 2613,
+      "encoding": "utf-8 with BOM"
+    }
+  },
+  "tables": {
+    "customers": {
+      "row_count": 99441,
+      "column_count": 5,
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "duplicate_row_count": 0,
+      "candidate_key": {
+        "columns": [
+          "customer_id"
+        ],
+        "duplicate_row_count": 0,
+        "duplicate_key_count": 0
+      },
+      "columns": {
+        "customer_id": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 99441,
+          "length_min": 32,
+          "length_max": 32,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "[0-9a-f]{32}",
+          "pattern_nonconforming_count": 0,
+          "top_values": {
+            "06b8999e2fba1a1fbc88172c00ba8bc7": 1,
+            "18955e83d337fd6b2def6b18a428ac77": 1,
+            "4e7b3e00288586ebd08712fdd0374a03": 1,
+            "b2b6027bc5c5109e529d4dc6358b12c3": 1,
+            "4f2d8ab171c80ec8364f7c12e35b23ad": 1,
+            "879864dab9bc3047522c92c82e1212b8": 1,
+            "fd826e7cf63160e536e0908c76c3f441": 1,
+            "5e274e7a0c3809e14aba7ad5aae0d407": 1,
+            "5adf08e34b2e993982a47070956c5c65": 1,
+            "4b7139f34592b3a31687243a302fa75b": 1
+          }
+        },
+        "customer_unique_id": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 96096,
+          "length_min": 32,
+          "length_max": 32,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "[0-9a-f]{32}",
+          "pattern_nonconforming_count": 0,
+          "top_values": {
+            "8d50f5eadf50201ccdcedfb9e2ac8455": 17,
+            "3e43e6105506432c953e165fb2acf44c": 9,
+            "1b6c7548a2a1f9037c1fd3ddfed95f33": 7,
+            "6469f99c1f9dfae7733b25662e7f1782": 7,
+            "ca77025e7201e3b30c44b472ff346268": 7,
+            "47c1a3033b8b77b3ab6e109eb4d5fdf3": 6,
+            "dc813062e0fc23409cd255f7f53c7074": 6,
+            "63cfc61cee11cbe306bff5857d00bfe4": 6,
+            "f0e310a6839dce9de1638e0fe5ab282a": 6,
+            "de34b16117594161a6a89c50b289d35a": 6
+          }
+        },
+        "customer_zip_code_prefix": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 14994,
+          "length_min": 5,
+          "length_max": 5,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "\\d{5}",
+          "pattern_nonconforming_count": 0,
+          "top_values": {
+            "22790": 142,
+            "24220": 124,
+            "22793": 121,
+            "24230": 117,
+            "22775": 110,
+            "29101": 101,
+            "13212": 95,
+            "35162": 93,
+            "22631": 89,
+            "38400": 87
+          }
+        },
+        "customer_city": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 4119,
+          "length_min": 3,
+          "length_max": 32,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "top_values": {
+            "sao paulo": 15540,
+            "rio de janeiro": 6882,
+            "belo horizonte": 2773,
+            "brasilia": 2131,
+            "curitiba": 1521,
+            "campinas": 1444,
+            "porto alegre": 1379,
+            "salvador": 1245,
+            "guarulhos": 1189,
+            "sao bernardo do campo": 938
+          }
+        },
+        "customer_state": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 27,
+          "length_min": 2,
+          "length_max": 2,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "[A-Z]{2}",
+          "pattern_nonconforming_count": 0,
+          "value_frequency": {
+            "SP": 41746,
+            "RJ": 12852,
+            "MG": 11635,
+            "RS": 5466,
+            "PR": 5045,
+            "SC": 3637,
+            "BA": 3380,
+            "DF": 2140,
+            "ES": 2033,
+            "GO": 2020,
+            "PE": 1652,
+            "CE": 1336,
+            "PA": 975,
+            "MT": 907,
+            "MA": 747,
+            "MS": 715,
+            "PB": 536,
+            "PI": 495,
+            "RN": 485,
+            "AL": 413,
+            "SE": 350,
+            "TO": 280,
+            "RO": 253,
+            "AM": 148,
+            "AC": 81,
+            "AP": 68,
+            "RR": 46
+          }
+        }
+      }
+    },
+    "geolocation": {
+      "row_count": 1000163,
+      "column_count": 5,
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "duplicate_row_count": 261831,
+      "columns": {
+        "geolocation_zip_code_prefix": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 19015,
+          "length_min": 5,
+          "length_max": 5,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "\\d{5}",
+          "pattern_nonconforming_count": 0,
+          "top_values": {
+            "24220": 1146,
+            "24230": 1102,
+            "38400": 965,
+            "35500": 907,
+            "11680": 879,
+            "22631": 832,
+            "30140": 810,
+            "11740": 788,
+            "38408": 773,
+            "28970": 743
+          }
+        },
+        "geolocation_lat": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 717372,
+          "length_min": 7,
+          "length_max": 23,
+          "whitespace_padded_count": 0,
+          "kind": "numeric",
+          "numeric_parse_failures": 0,
+          "min": -36.6053744107061,
+          "max": 45.06593318269697,
+          "mean": -21.1762,
+          "median": -22.91937749486411,
+          "negative_count": 998827,
+          "zero_count": 0
+        },
+        "geolocation_lng": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 717615,
+          "length_min": 7,
+          "length_max": 19,
+          "whitespace_padded_count": 0,
+          "kind": "numeric",
+          "numeric_parse_failures": 0,
+          "min": -101.46676644931476,
+          "max": 121.10539381057764,
+          "mean": -46.3905,
+          "median": -46.63787866960149,
+          "negative_count": 1000160,
+          "zero_count": 0
+        },
+        "geolocation_city": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 8011,
+          "length_min": 2,
+          "length_max": 38,
+          "whitespace_padded_count": 1,
+          "kind": "text",
+          "top_values": {
+            "sao paulo": 135800,
+            "rio de janeiro": 62151,
+            "belo horizonte": 27805,
+            "são paulo": 24918,
+            "curitiba": 16593,
+            "porto alegre": 13521,
+            "salvador": 11865,
+            "guarulhos": 11340,
+            "brasilia": 10470,
+            "sao bernardo do campo": 8112
+          }
+        },
+        "geolocation_state": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 27,
+          "length_min": 2,
+          "length_max": 2,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "[A-Z]{2}",
+          "pattern_nonconforming_count": 0,
+          "value_frequency": {
+            "SP": 404268,
+            "MG": 126336,
+            "RJ": 121169,
+            "RS": 61851,
+            "PR": 57859,
+            "SC": 38328,
+            "BA": 36045,
+            "GO": 20139,
+            "ES": 16748,
+            "PE": 16432,
+            "DF": 12986,
+            "MT": 12031,
+            "CE": 11674,
+            "PA": 10853,
+            "MS": 10431,
+            "MA": 7853,
+            "PB": 5538,
+            "RN": 5041,
+            "PI": 4549,
+            "AL": 4183,
+            "TO": 3576,
+            "SE": 3563,
+            "RO": 3478,
+            "AM": 2432,
+            "AC": 1301,
+            "AP": 853,
+            "RR": 646
+          }
+        }
+      }
+    },
+    "order_items": {
+      "row_count": 112650,
+      "column_count": 7,
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "duplicate_row_count": 0,
+      "candidate_key": {
+        "columns": [
+          "order_id",
+          "order_item_id"
+        ],
+        "duplicate_row_count": 0,
+        "duplicate_key_count": 0
+      },
+      "columns": {
+        "order_id": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 98666,
+          "length_min": 32,
+          "length_max": 32,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "[0-9a-f]{32}",
+          "pattern_nonconforming_count": 0,
+          "top_values": {
+            "8272b63d03f5f79c56e9e4120aec44ef": 21,
+            "1b15974a0141d54e36626dca3fdc731a": 20,
+            "ab14fdcfbe524636d65ee38360e22ce8": 20,
+            "428a2f660dc84138d969ccd69a0ab6d5": 15,
+            "9ef13efd6949e4573a18964dd1bbe7f5": 15,
+            "73c8ab38f07dc94389065f7eba4f297a": 14,
+            "9bdc4d4c71aa1de4606060929dee888c": 14,
+            "37ee401157a3a0b28c9c6d0ed8c3b24b": 13,
+            "2c2a19b5703863c908512d135aa6accc": 12,
+            "3a213fcdfe7d98be74ea0dc05a8b31ae": 12
+          }
+        },
+        "order_item_id": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 21,
+          "length_min": 1,
+          "length_max": 2,
+          "whitespace_padded_count": 0,
+          "kind": "numeric",
+          "numeric_parse_failures": 0,
+          "min": 1.0,
+          "max": 21.0,
+          "mean": 1.1978,
+          "median": 1.0,
+          "negative_count": 0,
+          "zero_count": 0
+        },
+        "product_id": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 32951,
+          "length_min": 32,
+          "length_max": 32,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "[0-9a-f]{32}",
+          "pattern_nonconforming_count": 0,
+          "top_values": {
+            "aca2eb7d00ea1a7b8ebd4e68314663af": 527,
+            "99a4788cb24856965c36a24e339b6058": 488,
+            "422879e10f46682990de24d770e7f83d": 484,
+            "389d119b48cf3043d311335e499d9c6b": 392,
+            "368c6c730842d78016ad823897a372db": 388,
+            "53759a2ecddad2bb87a079a1f1519f73": 373,
+            "d1c427060a0f73f6b889a5c7c61f2ac4": 343,
+            "53b36df67ebb7c41585e8d54d6772e08": 323,
+            "154e7e31ebfa092203795c972e5804a6": 281,
+            "3dd2a17168ec895c781a9191c1e95ad7": 274
+          }
+        },
+        "seller_id": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 3095,
+          "length_min": 32,
+          "length_max": 32,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "[0-9a-f]{32}",
+          "pattern_nonconforming_count": 0,
+          "top_values": {
+            "6560211a19b47992c3666cc44a7e94c0": 2033,
+            "4a3ca9315b744ce9f8e9374361493884": 1987,
+            "1f50f920176fa81dab994f9023523100": 1931,
+            "cc419e0650a3c5ba77189a1882b7556a": 1775,
+            "da8622b14eb17ae2831f4ac5b9dab84a": 1551,
+            "955fee9216a65b617aa5c0531780ce60": 1499,
+            "1025f0e2d44d7041d6cf58b6550e0bfa": 1428,
+            "7c67e1448b00f6e969d365cea6b010ab": 1364,
+            "ea8482cd71df3c1969d7b9473ff13abc": 1203,
+            "7a67c85e85bb2ce8582c35f2203ad736": 1171
+          }
+        },
+        "shipping_limit_date": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 93318,
+          "length_min": 19,
+          "length_max": 19,
+          "whitespace_padded_count": 0,
+          "kind": "timestamp",
+          "invalid_parse_count": 0,
+          "min": "2016-09-19 00:15:34",
+          "max": "2020-04-09 22:35:08"
+        },
+        "price": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 5968,
+          "length_min": 4,
+          "length_max": 7,
+          "whitespace_padded_count": 0,
+          "kind": "numeric",
+          "numeric_parse_failures": 0,
+          "min": 0.85,
+          "max": 6735.0,
+          "mean": 120.6537,
+          "median": 74.99,
+          "negative_count": 0,
+          "zero_count": 0
+        },
+        "freight_value": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 6999,
+          "length_min": 4,
+          "length_max": 6,
+          "whitespace_padded_count": 0,
+          "kind": "numeric",
+          "numeric_parse_failures": 0,
+          "min": 0.0,
+          "max": 409.68,
+          "mean": 19.9903,
+          "median": 16.26,
+          "negative_count": 0,
+          "zero_count": 383
+        }
+      }
+    },
+    "payments": {
+      "row_count": 103886,
+      "column_count": 5,
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "duplicate_row_count": 0,
+      "candidate_key": {
+        "columns": [
+          "order_id",
+          "payment_sequential"
+        ],
+        "duplicate_row_count": 0,
+        "duplicate_key_count": 0
+      },
+      "columns": {
+        "order_id": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 99440,
+          "length_min": 32,
+          "length_max": 32,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "[0-9a-f]{32}",
+          "pattern_nonconforming_count": 0,
+          "top_values": {
+            "fa65dad1b0e818e3ccc5cb0e39231352": 29,
+            "ccf804e764ed5650cd8759557269dc13": 26,
+            "285c2e15bebd4ac83635ccc563dc71f4": 22,
+            "895ab968e7bb0d5659d16cd74cd1650c": 21,
+            "ee9ca989fc93ba09a6eddc250ce01742": 19,
+            "fedcd9f7ccdc8cba3a18defedd1a5547": 19,
+            "21577126c19bf11a0b91592e5844ba78": 15,
+            "4bfcba9e084f46c8e3cb49b0fa6e6159": 15,
+            "3c58bffb70dcf45f12bdf66a3c215905": 14,
+            "4689b1816de42507a7d63a4617383c59": 14
+          }
+        },
+        "payment_sequential": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 29,
+          "length_min": 1,
+          "length_max": 2,
+          "whitespace_padded_count": 0,
+          "kind": "numeric",
+          "numeric_parse_failures": 0,
+          "min": 1.0,
+          "max": 29.0,
+          "mean": 1.0927,
+          "median": 1.0,
+          "negative_count": 0,
+          "zero_count": 0
+        },
+        "payment_type": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 5,
+          "length_min": 6,
+          "length_max": 11,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "value_frequency": {
+            "credit_card": 76795,
+            "boleto": 19784,
+            "voucher": 5775,
+            "debit_card": 1529,
+            "not_defined": 3
+          }
+        },
+        "payment_installments": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 24,
+          "length_min": 1,
+          "length_max": 2,
+          "whitespace_padded_count": 0,
+          "kind": "numeric",
+          "numeric_parse_failures": 0,
+          "min": 0.0,
+          "max": 24.0,
+          "mean": 2.8533,
+          "median": 1.0,
+          "negative_count": 0,
+          "zero_count": 2
+        },
+        "payment_value": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 29077,
+          "length_min": 4,
+          "length_max": 8,
+          "whitespace_padded_count": 0,
+          "kind": "numeric",
+          "numeric_parse_failures": 0,
+          "min": 0.0,
+          "max": 13664.08,
+          "mean": 154.1004,
+          "median": 100.0,
+          "negative_count": 0,
+          "zero_count": 9
+        }
+      }
+    },
+    "reviews": {
+      "row_count": 99224,
+      "column_count": 7,
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "duplicate_row_count": 0,
+      "candidate_key": {
+        "columns": [
+          "review_id"
+        ],
+        "duplicate_row_count": 1603,
+        "duplicate_key_count": 789
+      },
+      "columns": {
+        "review_id": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 98410,
+          "length_min": 32,
+          "length_max": 32,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "[0-9a-f]{32}",
+          "pattern_nonconforming_count": 0,
+          "top_values": {
+            "c444278834184f72b1484dfe47de7f97": 3,
+            "308316408775d1600dad81bd3184556d": 3,
+            "2d6ac45f859465b5c185274a1c929637": 3,
+            "3415c9f764e478409e8e0660ae816dd2": 3,
+            "4219a80ab469e3fc9901437b73da3f75": 3,
+            "e44840754f12fad2b8646712121b349a": 3,
+            "ddc52555ca27b0fe67d5255147682d2d": 3,
+            "7b606b0d57b078384f0b58eac1d41d78": 3,
+            "4d0e6dd087008d1f992d25ef6e1f619f": 3,
+            "08528f70f579f0c830189efc523d2182": 3
+          }
+        },
+        "order_id": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 98673,
+          "length_min": 32,
+          "length_max": 32,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "[0-9a-f]{32}",
+          "pattern_nonconforming_count": 0,
+          "top_values": {
+            "c88b1d1b157a9999ce368f218a407141": 3,
+            "df56136b8031ecd28e200bb18e6ddb2e": 3,
+            "03c939fd7fd3b38f8485a0f95798f1f6": 3,
+            "8e17072ec97ce29f0e1f111e598b0c85": 3,
+            "cf73e2cb1f4a9480ed70c154da3d954a": 2,
+            "169d7e0fd71d624d306f132acd791cbe": 2,
+            "1c308eca3f339414a92e518e2a2e5ee9": 2,
+            "2002ea16e75277eaa0b5d78632048540": 2,
+            "1d297b4800ed1a3c5b0944d84c01ee99": 2,
+            "0176a6846bcb3b0d3aa3116a9a768597": 2
+          }
+        },
+        "review_score": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 5,
+          "length_min": 1,
+          "length_max": 1,
+          "whitespace_padded_count": 0,
+          "kind": "numeric",
+          "numeric_parse_failures": 0,
+          "min": 1.0,
+          "max": 5.0,
+          "mean": 4.0864,
+          "median": 5.0,
+          "negative_count": 0,
+          "zero_count": 0
+        },
+        "review_comment_title": {
+          "null_count": 87656,
+          "null_pct": 88.3415,
+          "unique_count": 4527,
+          "length_min": 1,
+          "length_max": 26,
+          "whitespace_padded_count": 1998,
+          "kind": "text",
+          "top_values": {
+            "Recomendo": 423,
+            "recomendo": 345,
+            "Bom": 293,
+            "super recomendo": 270,
+            "Excelente": 248,
+            "Muito bom": 247,
+            "Ótimo": 240,
+            "Super recomendo": 217,
+            "Ótimo ": 207,
+            "Otimo": 174
+          }
+        },
+        "review_comment_message": {
+          "null_count": 58247,
+          "null_pct": 58.7025,
+          "unique_count": 36159,
+          "length_min": 1,
+          "length_max": 208,
+          "whitespace_padded_count": 9451,
+          "kind": "text",
+          "top_values": {
+            "Muito bom": 230,
+            "Bom": 189,
+            "muito bom": 122,
+            "bom": 107,
+            "Recomendo": 100,
+            "Otimo": 99,
+            "otimo": 96,
+            "Ótimo": 77,
+            "Ótimo ": 74,
+            "Ok": 72
+          }
+        },
+        "review_creation_date": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 636,
+          "length_min": 19,
+          "length_max": 19,
+          "whitespace_padded_count": 0,
+          "kind": "timestamp",
+          "invalid_parse_count": 0,
+          "min": "2016-10-02 00:00:00",
+          "max": "2018-08-31 00:00:00"
+        },
+        "review_answer_timestamp": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 98248,
+          "length_min": 19,
+          "length_max": 19,
+          "whitespace_padded_count": 0,
+          "kind": "timestamp",
+          "invalid_parse_count": 0,
+          "min": "2016-10-07 18:32:28",
+          "max": "2018-10-29 12:27:35"
+        }
+      }
+    },
+    "orders": {
+      "row_count": 99441,
+      "column_count": 8,
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "duplicate_row_count": 0,
+      "candidate_key": {
+        "columns": [
+          "order_id"
+        ],
+        "duplicate_row_count": 0,
+        "duplicate_key_count": 0
+      },
+      "columns": {
+        "order_id": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 99441,
+          "length_min": 32,
+          "length_max": 32,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "[0-9a-f]{32}",
+          "pattern_nonconforming_count": 0,
+          "top_values": {
+            "e481f51cbdc54678b7cc49136f2d6af7": 1,
+            "53cdb2fc8bc7dce0b6741e2150273451": 1,
+            "47770eb9100c2d0c44946d9cf07ec65d": 1,
+            "949d5b44dbf5de918fe9c16f97b45f8a": 1,
+            "ad21c59c0840e6cb83a9ceb5573f8159": 1,
+            "a4591c265e18cb1dcee52889e2d8acc3": 1,
+            "136cce7faa42fdb2cefd53fdc79a6098": 1,
+            "6514b8ad8028c9f2cc2374ded245783f": 1,
+            "76c6e866289321a7c93b82b54852dc33": 1,
+            "e69bfb5eb88e0ed6a785585b27e16dbf": 1
+          }
+        },
+        "customer_id": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 99441,
+          "length_min": 32,
+          "length_max": 32,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "[0-9a-f]{32}",
+          "pattern_nonconforming_count": 0,
+          "top_values": {
+            "9ef432eb6251297304e76186b10a928d": 1,
+            "b0830fb4747a6c6d20dea0b8c802d7ef": 1,
+            "41ce2a54c0b03bf3443c3d931a367089": 1,
+            "f88197465ea7920adcdbec7375364d82": 1,
+            "8ab97904e6daea8866dbdbc4fb7aad2c": 1,
+            "503740e9ca751ccdda7ba28e9ab8f608": 1,
+            "ed0271e0b7da060a393796590e7b737a": 1,
+            "9bdf08b4b3b52b5526ff42d37d47f222": 1,
+            "f54a9f0e6b351c431402b8461ea51999": 1,
+            "31ad1d1b63eb9962463f764d4e6e0c9d": 1
+          }
+        },
+        "order_status": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 8,
+          "length_min": 7,
+          "length_max": 11,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "value_frequency": {
+            "delivered": 96478,
+            "shipped": 1107,
+            "canceled": 625,
+            "unavailable": 609,
+            "invoiced": 314,
+            "processing": 301,
+            "created": 5,
+            "approved": 2
+          }
+        },
+        "order_purchase_timestamp": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 98875,
+          "length_min": 19,
+          "length_max": 19,
+          "whitespace_padded_count": 0,
+          "kind": "timestamp",
+          "invalid_parse_count": 0,
+          "min": "2016-09-04 21:15:19",
+          "max": "2018-10-17 17:30:18"
+        },
+        "order_approved_at": {
+          "null_count": 160,
+          "null_pct": 0.1609,
+          "unique_count": 90733,
+          "length_min": 19,
+          "length_max": 19,
+          "whitespace_padded_count": 0,
+          "kind": "timestamp",
+          "invalid_parse_count": 0,
+          "min": "2016-09-15 12:16:38",
+          "max": "2018-09-03 17:40:06"
+        },
+        "order_delivered_carrier_date": {
+          "null_count": 1783,
+          "null_pct": 1.793,
+          "unique_count": 81018,
+          "length_min": 19,
+          "length_max": 19,
+          "whitespace_padded_count": 0,
+          "kind": "timestamp",
+          "invalid_parse_count": 0,
+          "min": "2016-10-08 10:34:01",
+          "max": "2018-09-11 19:48:28"
+        },
+        "order_delivered_customer_date": {
+          "null_count": 2965,
+          "null_pct": 2.9817,
+          "unique_count": 95664,
+          "length_min": 19,
+          "length_max": 19,
+          "whitespace_padded_count": 0,
+          "kind": "timestamp",
+          "invalid_parse_count": 0,
+          "min": "2016-10-11 13:46:32",
+          "max": "2018-10-17 13:22:46"
+        },
+        "order_estimated_delivery_date": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 459,
+          "length_min": 19,
+          "length_max": 19,
+          "whitespace_padded_count": 0,
+          "kind": "timestamp",
+          "invalid_parse_count": 0,
+          "min": "2016-09-30 00:00:00",
+          "max": "2018-11-12 00:00:00"
+        }
+      }
+    },
+    "products": {
+      "row_count": 32951,
+      "column_count": 9,
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "duplicate_row_count": 0,
+      "candidate_key": {
+        "columns": [
+          "product_id"
+        ],
+        "duplicate_row_count": 0,
+        "duplicate_key_count": 0
+      },
+      "columns": {
+        "product_id": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 32951,
+          "length_min": 32,
+          "length_max": 32,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "[0-9a-f]{32}",
+          "pattern_nonconforming_count": 0,
+          "top_values": {
+            "1e9e8ef04dbcff4541ed26657ea517e5": 1,
+            "3aa071139cb16b67ca9e5dea641aaa2f": 1,
+            "96bd76ec8810374ed1b65e291975717f": 1,
+            "cef67bcfe19066a932b7673e239eb23d": 1,
+            "9dc1a7de274444849c219cff195d0b71": 1,
+            "41d3672d4792049fa1779bb35283ed13": 1,
+            "732bd381ad09e530fe0a5f457d81becb": 1,
+            "2548af3e6e77a690cf3eb6368e9ab61e": 1,
+            "37cc742be07708b53a98702e77a21a02": 1,
+            "8c92109888e8cdf9d66dc7e463025574": 1
+          }
+        },
+        "product_category_name": {
+          "null_count": 610,
+          "null_pct": 1.8512,
+          "unique_count": 73,
+          "length_min": 3,
+          "length_max": 46,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "top_values": {
+            "cama_mesa_banho": 3029,
+            "esporte_lazer": 2867,
+            "moveis_decoracao": 2657,
+            "beleza_saude": 2444,
+            "utilidades_domesticas": 2335,
+            "automotivo": 1900,
+            "informatica_acessorios": 1639,
+            "brinquedos": 1411,
+            "relogios_presentes": 1329,
+            "telefonia": 1134
+          }
+        },
+        "product_name_lenght": {
+          "null_count": 610,
+          "null_pct": 1.8512,
+          "unique_count": 66,
+          "length_min": 1,
+          "length_max": 2,
+          "whitespace_padded_count": 0,
+          "kind": "numeric",
+          "numeric_parse_failures": 0,
+          "min": 5.0,
+          "max": 76.0,
+          "mean": 48.4769,
+          "median": 51.0,
+          "negative_count": 0,
+          "zero_count": 0
+        },
+        "product_description_lenght": {
+          "null_count": 610,
+          "null_pct": 1.8512,
+          "unique_count": 2960,
+          "length_min": 1,
+          "length_max": 4,
+          "whitespace_padded_count": 0,
+          "kind": "numeric",
+          "numeric_parse_failures": 0,
+          "min": 4.0,
+          "max": 3992.0,
+          "mean": 771.4953,
+          "median": 595.0,
+          "negative_count": 0,
+          "zero_count": 0
+        },
+        "product_photos_qty": {
+          "null_count": 610,
+          "null_pct": 1.8512,
+          "unique_count": 19,
+          "length_min": 1,
+          "length_max": 2,
+          "whitespace_padded_count": 0,
+          "kind": "numeric",
+          "numeric_parse_failures": 0,
+          "min": 1.0,
+          "max": 20.0,
+          "mean": 2.189,
+          "median": 1.0,
+          "negative_count": 0,
+          "zero_count": 0
+        },
+        "product_weight_g": {
+          "null_count": 2,
+          "null_pct": 0.0061,
+          "unique_count": 2204,
+          "length_min": 1,
+          "length_max": 5,
+          "whitespace_padded_count": 0,
+          "kind": "numeric",
+          "numeric_parse_failures": 0,
+          "min": 0.0,
+          "max": 40425.0,
+          "mean": 2276.4725,
+          "median": 700.0,
+          "negative_count": 0,
+          "zero_count": 4
+        },
+        "product_length_cm": {
+          "null_count": 2,
+          "null_pct": 0.0061,
+          "unique_count": 99,
+          "length_min": 1,
+          "length_max": 3,
+          "whitespace_padded_count": 0,
+          "kind": "numeric",
+          "numeric_parse_failures": 0,
+          "min": 7.0,
+          "max": 105.0,
+          "mean": 30.8151,
+          "median": 25.0,
+          "negative_count": 0,
+          "zero_count": 0
+        },
+        "product_height_cm": {
+          "null_count": 2,
+          "null_pct": 0.0061,
+          "unique_count": 102,
+          "length_min": 1,
+          "length_max": 3,
+          "whitespace_padded_count": 0,
+          "kind": "numeric",
+          "numeric_parse_failures": 0,
+          "min": 2.0,
+          "max": 105.0,
+          "mean": 16.9377,
+          "median": 13.0,
+          "negative_count": 0,
+          "zero_count": 0
+        },
+        "product_width_cm": {
+          "null_count": 2,
+          "null_pct": 0.0061,
+          "unique_count": 95,
+          "length_min": 1,
+          "length_max": 3,
+          "whitespace_padded_count": 0,
+          "kind": "numeric",
+          "numeric_parse_failures": 0,
+          "min": 6.0,
+          "max": 118.0,
+          "mean": 23.1967,
+          "median": 20.0,
+          "negative_count": 0,
+          "zero_count": 0
+        }
+      }
+    },
+    "sellers": {
+      "row_count": 3095,
+      "column_count": 4,
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "duplicate_row_count": 0,
+      "candidate_key": {
+        "columns": [
+          "seller_id"
+        ],
+        "duplicate_row_count": 0,
+        "duplicate_key_count": 0
+      },
+      "columns": {
+        "seller_id": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 3095,
+          "length_min": 32,
+          "length_max": 32,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "[0-9a-f]{32}",
+          "pattern_nonconforming_count": 0,
+          "top_values": {
+            "3442f8959a84dea7ee197c632cb2df15": 1,
+            "d1b65fc7debc3361ea86b5f14c68d2e2": 1,
+            "ce3ad9de960102d0677a81f5d0bb7b2d": 1,
+            "c0f3eea2e14555b6faeea3dd58c1b1c3": 1,
+            "51a04a8a6bdcb23deccc82b0b80742cf": 1,
+            "c240c4061717ac1806ae6ee72be3533b": 1,
+            "e49c26c3edfa46d227d5121a6b6e4d37": 1,
+            "1b938a7ec6ac5061a66a3766e0e75f90": 1,
+            "768a86e36ad6aae3d03ee3c6433d61df": 1,
+            "ccc4bbb5f32a6ab2b7066a4130f114e3": 1
+          }
+        },
+        "seller_zip_code_prefix": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 2246,
+          "length_min": 5,
+          "length_max": 5,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "\\d{5}",
+          "pattern_nonconforming_count": 0,
+          "top_values": {
+            "14940": 49,
+            "13660": 10,
+            "16200": 9,
+            "13920": 9,
+            "14020": 8,
+            "01026": 8,
+            "87050": 8,
+            "13481": 7,
+            "37540": 7,
+            "35530": 6
+          }
+        },
+        "seller_city": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 611,
+          "length_min": 2,
+          "length_max": 40,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "top_values": {
+            "sao paulo": 694,
+            "curitiba": 127,
+            "rio de janeiro": 96,
+            "belo horizonte": 68,
+            "ribeirao preto": 52,
+            "guarulhos": 50,
+            "ibitinga": 49,
+            "santo andre": 45,
+            "campinas": 41,
+            "maringa": 40
+          }
+        },
+        "seller_state": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 23,
+          "length_min": 2,
+          "length_max": 2,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "pattern": "[A-Z]{2}",
+          "pattern_nonconforming_count": 0,
+          "value_frequency": {
+            "SP": 1849,
+            "PR": 349,
+            "MG": 244,
+            "SC": 190,
+            "RJ": 171,
+            "RS": 129,
+            "GO": 40,
+            "DF": 30,
+            "ES": 23,
+            "BA": 19,
+            "CE": 13,
+            "PE": 9,
+            "PB": 6,
+            "RN": 5,
+            "MS": 5,
+            "MT": 4,
+            "RO": 2,
+            "SE": 2,
+            "AC": 1,
+            "PI": 1,
+            "MA": 1,
+            "AM": 1,
+            "PA": 1
+          }
+        }
+      }
+    },
+    "category_translation": {
+      "row_count": 71,
+      "column_count": 2,
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "duplicate_row_count": 0,
+      "candidate_key": {
+        "columns": [
+          "product_category_name"
+        ],
+        "duplicate_row_count": 0,
+        "duplicate_key_count": 0
+      },
+      "columns": {
+        "product_category_name": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 71,
+          "length_min": 3,
+          "length_max": 46,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "top_values": {
+            "beleza_saude": 1,
+            "informatica_acessorios": 1,
+            "automotivo": 1,
+            "cama_mesa_banho": 1,
+            "moveis_decoracao": 1,
+            "esporte_lazer": 1,
+            "perfumaria": 1,
+            "utilidades_domesticas": 1,
+            "telefonia": 1,
+            "relogios_presentes": 1
+          }
+        },
+        "product_category_name_english": {
+          "null_count": 0,
+          "null_pct": 0.0,
+          "unique_count": 71,
+          "length_min": 3,
+          "length_max": 39,
+          "whitespace_padded_count": 0,
+          "kind": "text",
+          "top_values": {
+            "health_beauty": 1,
+            "computers_accessories": 1,
+            "auto": 1,
+            "bed_bath_table": 1,
+            "furniture_decor": 1,
+            "sports_leisure": 1,
+            "perfumery": 1,
+            "housewares": 1,
+            "telephony": 1,
+            "watches_gifts": 1
+          }
+        }
+      }
+    }
+  },
+  "relationships": [
+    {
+      "child": "orders.customer_id",
+      "parent": "customers.customer_id",
+      "child_null_count": 0,
+      "orphan_row_count": 0,
+      "orphan_key_count": 0,
+      "sample_orphan_keys": [],
+      "unreferenced_parent_key_count": 0
+    },
+    {
+      "child": "order_items.order_id",
+      "parent": "orders.order_id",
+      "child_null_count": 0,
+      "orphan_row_count": 0,
+      "orphan_key_count": 0,
+      "sample_orphan_keys": [],
+      "unreferenced_parent_key_count": 775
+    },
+    {
+      "child": "order_items.product_id",
+      "parent": "products.product_id",
+      "child_null_count": 0,
+      "orphan_row_count": 0,
+      "orphan_key_count": 0,
+      "sample_orphan_keys": [],
+      "unreferenced_parent_key_count": 0
+    },
+    {
+      "child": "order_items.seller_id",
+      "parent": "sellers.seller_id",
+      "child_null_count": 0,
+      "orphan_row_count": 0,
+      "orphan_key_count": 0,
+      "sample_orphan_keys": [],
+      "unreferenced_parent_key_count": 0
+    },
+    {
+      "child": "payments.order_id",
+      "parent": "orders.order_id",
+      "child_null_count": 0,
+      "orphan_row_count": 0,
+      "orphan_key_count": 0,
+      "sample_orphan_keys": [],
+      "unreferenced_parent_key_count": 1
+    },
+    {
+      "child": "reviews.order_id",
+      "parent": "orders.order_id",
+      "child_null_count": 0,
+      "orphan_row_count": 0,
+      "orphan_key_count": 0,
+      "sample_orphan_keys": [],
+      "unreferenced_parent_key_count": 768
+    },
+    {
+      "child": "products.product_category_name",
+      "parent": "category_translation.product_category_name",
+      "child_null_count": 610,
+      "orphan_row_count": 13,
+      "orphan_key_count": 2,
+      "sample_orphan_keys": [
+        "pc_gamer",
+        "portateis_cozinha_e_preparadores_de_alimentos"
+      ],
+      "unreferenced_parent_key_count": 0
+    },
+    {
+      "child": "customers.customer_zip_code_prefix",
+      "parent": "geolocation.geolocation_zip_code_prefix",
+      "child_null_count": 0,
+      "orphan_row_count": 278,
+      "orphan_key_count": 157,
+      "sample_orphan_keys": [
+        "72300",
+        "11547",
+        "64605",
+        "72465",
+        "07729"
+      ],
+      "unreferenced_parent_key_count": 4178
+    },
+    {
+      "child": "sellers.seller_zip_code_prefix",
+      "parent": "geolocation.geolocation_zip_code_prefix",
+      "child_null_count": 0,
+      "orphan_row_count": 7,
+      "orphan_key_count": 7,
+      "sample_orphan_keys": [
+        "82040",
+        "91901",
+        "72580",
+        "02285",
+        "07412"
+      ],
+      "unreferenced_parent_key_count": 16776
+    }
+  ]
+}
